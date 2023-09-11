@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste Oluşturucu</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* style.css */
+#liste {
+    margin-bottom: 20px;
+  }
+  
+  #liste input {
+    margin-right: 10px;
+  }
+  
+  #listeler {
+    font-size: 18px;
+  }
+  
+  </style>
+</head>
+<body>
+  <h1>Liste Oluşturucu</h1>
+  <div id="liste">
+    <input type="text" id="tarih" placeholder="Tarih">
+    <input type="text" id="saat" placeholder="Saat">
+    <input type="text" id="nereden" placeholder="Nereden">
+    <input type="text" id="nereye" placeholder="Nereye">
+    <input type="text" id="getirdi" placeholder="Ne Getirdi">
+    <input type="text" id="goturdu" placeholder="Ne Götürdü">
+    <button onclick="kaydet()">Kayıt Et</button>
+  </div>
+  <div id="listeler">
+  </div>
+  <script>
+    // script.js
+let counter = 1;
+
+function kaydet() {
+  const tarih = document.getElementById("tarih").value;
+  const saat = document.getElementById("saat").value;
+  const nereden = document.getElementById("nereden").value;
+  const nereye = document.getElementById("nereye").value;
+  const getirdi = document.getElementById("getirdi").value;
+  const goturdu = document.getElementById("goturdu").value;
+
+  const listeDiv = document.getElementById("listeler");
+  const yeniListe = document.createElement("div");
+  yeniListe.textContent = `${counter}. Tarih: ${tarih}, Saat: ${saat}, Nereden: ${nereden}, Nereye: ${nereye}, Getirdi: ${getirdi}, Götürdü: ${goturdu}`;
+  listeDiv.appendChild(yeniListe);
+
+  // Giriş alanlarını temizle
+  document.getElementById("tarih").value = "";
+  document.getElementById("saat").value = "";
+  document.getElementById("nereden").value = "";
+  document.getElementById("nereye").value = "";
+  document.getElementById("getirdi").value = "";
+  document.getElementById("goturdu").value = "";
+
+  counter++;
+}
+
+  </script>
+</body>
+</html>
